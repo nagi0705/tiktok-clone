@@ -9,7 +9,7 @@ import { useGeneralStore } from "app/stores/general"
 
 export default function SideNavMain() {
 
-    let { setRandomUsers, randomUsers} = useGeneralStore()
+    const { setRandomUsers, randomUsers} = useGeneralStore()
 
     const contextUser = useUser()
     const pathname = usePathname()

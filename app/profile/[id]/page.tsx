@@ -14,9 +14,9 @@ import useCreateBucketUrl from "app/hooks/useCreateBucketUrl"
 
 export default function Profile({ params }: ProfilePageTypes) {
     const contextUser = useUser()
-    let { postsByUser, setPostsByUser } = usePostStore()
-    let { setCurrentProfile, currentProfile } = useProfileStore()
-    let { isEditProfileOpen, setIsEditProfileOpen } = useGeneralStore()
+    const { postsByUser, setPostsByUser } = usePostStore()
+    const { setCurrentProfile, currentProfile } = useProfileStore()
+    const { isEditProfileOpen, setIsEditProfileOpen } = useGeneralStore()
 
     useEffect(() => {
         setCurrentProfile(params?.id)
@@ -53,7 +53,7 @@ export default function Profile({ params }: ProfilePageTypes) {
                             
                             {contextUser?.user?.id == params?.id ? (
                                 <button 
-                                    onClick={() => setIsEditProfileOpen(isEditProfileOpen = !isEditProfileOpen)}
+                                    onClick={() => setIsEditProfileOpen(!isEditProfileOpen)}
                                     className="flex item-center rounded-md py-1.5 px-3.5 mt-3 text-[15px] font-semibold border hover:bg-gray-100"
                                 >
                                     <BsPencil className="mt-0.5 mr-1" size="18"/>

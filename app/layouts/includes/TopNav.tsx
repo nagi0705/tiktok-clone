@@ -18,8 +18,8 @@ export default function TopNav() {
     const pathname = usePathname()
 
     const [searchProfiles, setSearchProfiles] = useState<RandomUsers[]>([])
-    let [showMenu, setShowMenu] = useState<boolean>(false)
-    let { setIsLoginOpen, setIsEditProfileOpen } = useGeneralStore()
+    const [showMenu, setShowMenu] = useState<boolean>(false)
+    const { setIsLoginOpen, setIsEditProfileOpen } = useGeneralStore()
 
     useEffect(() => { setIsEditProfileOpen(false) }, [])
 
@@ -107,7 +107,7 @@ export default function TopNav() {
                                 <div className="relative">
 
                                     <button 
-                                        onClick={() => setShowMenu(showMenu = !showMenu)} 
+                                        onClick={() => setShowMenu(!showMenu)} 
                                         className="mt-1 border border-gray-200 rounded-full"
                                     >
                                         <img className="rounded-full w-[35px] h-[35px]" src={useCreateBucketUrl(userContext?.user?.image || '')} />

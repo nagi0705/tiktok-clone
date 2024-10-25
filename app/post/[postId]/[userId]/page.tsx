@@ -16,9 +16,9 @@ import useCreateBucketUrl from "app/hooks/useCreateBucketUrl"
 
 export default function Post({ params }: PostPageTypes) {
 
-    let { postById, postsByUser, setPostById, setPostsByUser } = usePostStore()
-    let { setLikesByPost } = useLikeStore()
-    let { setCommentsByPost } = useCommentStore()
+    const { postById, postsByUser, setPostById, setPostsByUser } = usePostStore()
+    const { setLikesByPost } = useLikeStore()
+    const { setCommentsByPost } = useCommentStore()
 
     const router = useRouter()
 
