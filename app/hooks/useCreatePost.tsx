@@ -1,7 +1,7 @@
 import { database, storage, ID } from "lib/AppWriteClient"
 
 const useCreatePost = async (file: File, userId: string, caption: string) => {
-    let videoId = Math.random().toString(36).slice(2, 22)
+    const videoId = Math.random().toString(36).slice(2, 22)
 
     try {
         await database.createDocument(

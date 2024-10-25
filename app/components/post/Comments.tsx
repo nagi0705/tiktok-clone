@@ -10,8 +10,8 @@ import { CommentsCompTypes } from "app/types"
 
 export default function Comments({ params }: CommentsCompTypes) {
 
-    let { commentsByPost, setCommentsByPost } = useCommentStore()
-    let { setIsLoginOpen } = useGeneralStore()
+    const { commentsByPost, setCommentsByPost } = useCommentStore()
+    const { setIsLoginOpen } = useGeneralStore()
 
     const contextUser = useUser()
     const [comment, setComment] = useState<string>('')

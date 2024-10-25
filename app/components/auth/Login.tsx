@@ -6,7 +6,7 @@ import { useGeneralStore } from "app/stores/general";
 import { BiLoaderCircle } from "react-icons/bi";
 
 export default function Login() {
-    let { setIsLoginOpen } = useGeneralStore();
+    const { setIsLoginOpen } = useGeneralStore();
 
     const contextUser = useUser()
 
@@ -37,7 +37,7 @@ export default function Login() {
     }
 
     const login = async () => {
-        let isError = validate()
+        const isError = validate()
         if (isError) return
         if (!contextUser) return
 

@@ -7,7 +7,7 @@ import { BiLoaderCircle } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 
 export default function Register() {
-    let { setIsLoginOpen } = useGeneralStore();
+    const { setIsLoginOpen } = useGeneralStore();
 
     const contextUser = useUser()
     const router = useRouter()
@@ -55,7 +55,7 @@ export default function Register() {
     }
 
     const register = async () => {
-        let isError = validate()
+        const isError = validate()
         if (isError) return
         if (!contextUser) return
 

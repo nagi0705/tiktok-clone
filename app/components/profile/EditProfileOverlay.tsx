@@ -17,8 +17,8 @@ import useCreateBucketUrl from "app/hooks/useCreateBucketUrl";
  
 export default function EditProfileOverlay() {
     
-    let { currentProfile, setCurrentProfile } = useProfileStore()
-    let { setIsEditProfileOpen } = useGeneralStore()
+    const { currentProfile, setCurrentProfile } = useProfileStore()
+    const { setIsEditProfileOpen } = useGeneralStore()
 
     const contextUser = useUser()
     const router = useRouter()

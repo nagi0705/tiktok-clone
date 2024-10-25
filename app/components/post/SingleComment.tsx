@@ -12,11 +12,11 @@ import { SingleCommentCompTypes } from "app/types"
 export default function SingleComment({ comment, params }: SingleCommentCompTypes) {
 
     const contextUser = useUser()
-    let { setCommentsByPost } = useCommentStore()
+    const { setCommentsByPost } = useCommentStore()
     const [isDeleting, setIsDeleting] = useState(false)
 
     const deleteThisComment = async () => {
-        let res = confirm("Are you sure you weant to delete this comment?")
+        const res = confirm("Are you sure you weant to delete this comment?")
         if (!res) return
 
         try {
