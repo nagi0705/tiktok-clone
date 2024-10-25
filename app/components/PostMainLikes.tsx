@@ -14,7 +14,7 @@ import useDeleteLike from "../hooks/useDeleteLike"
 
 export default function PostMainLikes({ post }: PostMainLikesCompTypes) {
 
-    let { setIsLoginOpen } = useGeneralStore();
+    const { setIsLoginOpen } = useGeneralStore();
 
     const router = useRouter()
     const contextUser = useUser()
@@ -31,12 +31,12 @@ export default function PostMainLikes({ post }: PostMainLikesCompTypes) {
     useEffect(() => { hasUserLikedPost() }, [likes, contextUser])
 
     const getAllCommentsByPost = async () => {
-        let result = await useGetCommentsByPostId(post?.id)
+        const result = await useGetCommentsByPostId(post?.id)
         setComments(result)
     }
 
     const getAllLikesByPost = async () => {
-        let result = await useGetLikesByPostId(post?.id)
+        const result = await useGetLikesByPostId(post?.id)
         setLikes(result)
     }
 
@@ -47,7 +47,7 @@ export default function PostMainLikes({ post }: PostMainLikesCompTypes) {
             setUserLiked(false)
             return
         }
-        let res = useIsLiked(contextUser?.user?.id, post?.id, likes)
+        const res = useIsLiked(contextUser?.user?.id, post?.id, likes)
         setUserLiked(res ? true : false)
     }
 
@@ -73,7 +73,7 @@ export default function PostMainLikes({ post }: PostMainLikesCompTypes) {
             return
         }
         
-        let res = useIsLiked(contextUser?.user?.id, post?.id, likes)
+        const res = useIsLiked(contextUser?.user?.id, post?.id, likes)
 
         if (!res) {
             like()
