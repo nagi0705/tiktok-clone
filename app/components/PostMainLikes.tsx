@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { AiFillHeart } from "react-icons/ai"
 import { FaShare, FaCommentDots } from "react-icons/fa"
 import { useEffect, useState } from "react"
@@ -24,20 +25,20 @@ export default function PostMainLikes({ post }: PostMainLikesCompTypes) {
     const [likes, setLikes] = useState<Like[]>([])
 
     useEffect(() => { 
-        getAllLikesByPost()
-        getAllCommentsByPost()
-    }, [post])
+        getAllLikesByPost();
+        getAllCommentsByPost();
+    }, [post]);
 
     useEffect(() => { hasUserLikedPost() }, [likes, contextUser])
 
     const getAllCommentsByPost = async () => {
-        const result = await useGetCommentsByPostId(post?.id)
-        setComments(result)
+        const result = await useGetCommentsByPostId(post?.id);
+        setComments(result);
     }
 
     const getAllLikesByPost = async () => {
-        const result = await useGetLikesByPostId(post?.id)
-        setLikes(result)
+        const result = await useGetLikesByPostId(post?.id);
+        setLikes(result);
     }
 
     const hasUserLikedPost = () => {

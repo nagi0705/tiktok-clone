@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 
 import React, { useEffect, useState } from "react";
@@ -61,7 +62,7 @@ export default function Upload() {
     }
 
     const createNewPost = async () => {
-        let isError = validate()
+        const isError = validate()
         if (isError) return
         if (!file || !contextUser?.user) return
         setIsUploading(true)

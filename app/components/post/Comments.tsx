@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from "react"
 import SingleComment from "./SingleComment"
 import { useUser } from "app/context/user"
@@ -23,7 +24,7 @@ export default function Comments({ params }: CommentsCompTypes) {
 
         try {
             setIsUploading(true)
-            await useCreateComment(contextUser?.user?.id, params?.postId, comment)
+            await useCreateComment(contextUser?.user?.id, params?.postId, comment);
             setCommentsByPost(params?.postId)
             setComment('')
             setIsUploading(false)

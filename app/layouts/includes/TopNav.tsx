@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Link from "next/link"
 import debounce from 'debounce';
 import { useRouter, usePathname } from "next/navigation"

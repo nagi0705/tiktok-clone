@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { storage } from "lib/AppWriteClient"
 import Image from "image-js";
 

@@ -16,7 +16,11 @@ export default function PostMain({ post }: PostMainCompTypes) {
 
         if (postMainElement) {
             const observer = new IntersectionObserver((entries) => {
-                entries[0].isIntersecting ? video.play() : video.pause()
+                if (entries[0].isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
             }, { threshold: [0.6] });
         
             observer.observe(postMainElement);

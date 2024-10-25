@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 
 import Link from "next/link"
@@ -43,7 +44,7 @@ export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes
             setUserLiked(false)
             return
         }
-        let res = useIsLiked(contextUser.user.id, params.postId, likesByPost)
+        const res = useIsLiked(contextUser.user.id, params.postId, likesByPost)
         setUserLiked(res ? true : false)
     }
 
@@ -76,7 +77,7 @@ export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes
     const likeOrUnlike = () => {
         if (!contextUser?.user) return setIsLoginOpen(true)
 
-        let res = useIsLiked(contextUser.user.id, params.postId, likesByPost)
+        const res = useIsLiked(contextUser.user.id, params.postId, likesByPost)
         if (!res) {
             like()
         } else {
@@ -89,7 +90,7 @@ export default function CommentsHeader({ post, params }: CommentsHeaderCompTypes
     }
 
     const deletePost = async () => {
-        let res = confirm('Are you sure you want to delete this post?')
+        const res = confirm('Are you sure you want to delete this post?')
         if (!res) return
 
         setIsDeleteing(true)

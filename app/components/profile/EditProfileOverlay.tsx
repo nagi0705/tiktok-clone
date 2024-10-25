@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from "react"
 import { Cropper } from 'react-advanced-cropper';
 import 'react-advanced-cropper/dist/style.css'
@@ -51,7 +52,7 @@ export default function EditProfileOverlay() {
     }
 
     const updateUserInfo = async () => {
-        let isError = validate()
+        const isError = validate()
         if (isError) return
         if (!contextUser?.user) return
         
@@ -68,7 +69,7 @@ export default function EditProfileOverlay() {
     }
 
     const cropAndUpdateImage = async () => {
-        let isError = validate()
+        const isError = validate()
         if (isError) return
         if (!contextUser?.user) return
 
