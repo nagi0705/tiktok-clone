@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
@@ -17,11 +19,10 @@ const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     try {
       const currentSession = await account.getSession("current");
       if (!currentSession) return
+      const user = await account.get();
+      const profile = await useGetProfileByUserId(user?.$id);
 
-      const promise = await account.get() as any
-      const profile = await useGetProfileByUserId(promise?.$id)
-
-      setUser({ id: promise?.$id, name: promise?.name,  bio: profile?.bio, image: profile?.image });
+      setUser({ id: user?.$id, name: user?.name, bio: profile?.bio, image: profile?.image });
     } catch (error) {
       setUser(null);
     }

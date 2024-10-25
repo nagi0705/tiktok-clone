@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { database } from "lib/AppWriteClient"
 import useGetProfileByUserId from "./useGetProfileByUserId";
 

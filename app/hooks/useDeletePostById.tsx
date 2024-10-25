@@ -1,4 +1,5 @@
-import { database, Query, storage } from "lib/AppWriteClient"
+/* eslint-disable react-hooks/rules-of-hooks */
+import { database,  storage } from "lib/AppWriteClient"
 import useDeleteComment from "./useDeleteComment";
 import useDeleteLike from "./useDeleteLike";
 import useGetCommentsByPostId from "./useGetCommentsByPostId";

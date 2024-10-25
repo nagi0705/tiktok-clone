@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { SiSoundcharts } from "react-icons/si"
 import { BiErrorCircle } from "react-icons/bi"

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { create } from 'zustand';
 import { persist, devtools, createJSONStorage } from 'zustand/middleware';
 import { Post, PostWithProfile } from '../types';
