@@ -1,3 +1,4 @@
+// app/components/auth/Register.tsx
 import { useGeneralStore } from "app/stores/general";
 import TextInput from "../TextInput";
 import { useState } from "react";
@@ -20,7 +21,7 @@ export default function Register() {
     const [error, setError] = useState<ShowErrorObject | null>(null)
 
     const showError = (type: string) => {
-        if (error && Object.entries(error).length > 0 && error?.type == type) {
+        if (error && Object.entries(error).length > 0 && error?.type === type) {
             return error.message
         }
         return ''
@@ -33,22 +34,22 @@ export default function Register() {
         const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
         if (!name) {
-            setError({ type: 'name', message: 'A Name is required'})
+            setError({ type: 'name', message: 'A Name is required' })
             isError = true
         } else if (!email) {
-            setError({ type: 'email', message: 'An Email is required'})
+            setError({ type: 'email', message: 'An Email is required' })
             isError = true
         } else if (!reg.test(email)) {
-            setError({ type: 'email', message: 'The Email is not valid'})
+            setError({ type: 'email', message: 'The Email is not valid' })
             isError = true
         } else if (!password) {
-            setError({ type: 'password', message: 'A Password is required'})
+            setError({ type: 'password', message: 'A Password is required' })
             isError = true
         } else if (password.length < 8) {
-            setError({ type: 'password', message: 'The Password needs to be longer'})
+            setError({ type: 'password', message: 'The Password needs to be longer' })
             isError = true
-        } else if (password != confirmPassword) {
-            setError({ type: 'password', message: 'The Passwords do not match'})
+        } else if (password !== confirmPassword) {
+            setError({ type: 'password', message: 'The Passwords do not match' })
             isError = true
         }
         return isError
@@ -61,7 +62,7 @@ export default function Register() {
 
         try {
             setLoading(true)
-            await contextUser.register(name, email, password)
+            await contextUser.register(name, email, password) // contextUserのregister関数でプロキシを使用
             setLoading(false)
             setIsLoginOpen(false)
             router.refresh()
@@ -78,7 +79,6 @@ export default function Register() {
                 <h1 className="text-center text-[28px] mb-4 font-bold">Register</h1>
 
                 <div className="px-6 pb-2">
-
                     <TextInput 
                         string={name}
                         placeholder="Name"
@@ -86,11 +86,9 @@ export default function Register() {
                         inputType="text"
                         error={showError('name')}
                     />
-                    
                 </div>
 
                 <div className="px-6 pb-2">
-
                     <TextInput 
                         string={email}
                         placeholder="Email address"
@@ -98,7 +96,6 @@ export default function Register() {
                         inputType="email"
                         error={showError('email')}
                     />
-                    
                 </div>
 
                 <div className="px-6 pb-2">
